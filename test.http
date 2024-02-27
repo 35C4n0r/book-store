@@ -1,0 +1,145 @@
+### Registering a user
+POST https://localhost/api/register
+Content-Type: application/json
+
+{
+  "username": "Jay",
+  "email": "z@gmail.com",
+  "password": "password"
+}
+
+
+### Logging in a user
+POST https://localhost/api/login
+Content-Type: application/json
+
+{
+  "email": "z@gmail.com",
+  "password": "password"
+}
+
+
+### Making an Admin user
+POST https://localhost/api/sudo
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+{
+  "admin_code": "SECRET_FOR_ADMIN"
+}
+
+
+### Middleware Sanity Test
+GET https://localhost/api/middleware
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Deactivation Test
+POST https://localhost/api/deactivate
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Delete Test
+DELETE https://localhost/api/delete
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Add Book to inventory test
+POST https://localhost/api/admin/add
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-5-3765-7387-7",
+  "title": "TestBook",
+  "author": "Jay Kumar",
+  "description": "Meow Meow Meow",
+  "Content": "VGhpcyBpcyBhIHRlc3QgYm9vayBjb250ZW50"
+}
+
+
+### Delete a book from the inventory
+DELETE https://localhost/api/admin/delete/978-10-3765-7387-7
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Update a book
+PUT https://localhost/api/admin/update
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-10-3765-7387-7",
+  "title": "TestBook-33",
+  "author": "Jay Kumar",
+  "description": "Meow123 Meow Meow",
+  "Content": "VGhpcyBpcyBhIHRlc3QgYm9vayBjb250ZW50"
+}
+
+
+### Search a book
+GET https://localhost/api/books?author=Jay
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Add to Cart
+POST https://localhost/api/cart
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-10-3765-7387-7",
+  "quantity": 1
+}
+
+
+### Update cart Item
+PUT https://localhost/api/cart
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-10-3765-7387-7",
+  "quantity": 33
+}
+
+
+### Deleting Cart Item
+DELETE https://localhost/api/cart/978-5-3765-7387-7
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Getting cart Items
+GET https://localhost/api/cart
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Adding a review
+POST https://localhost/api/review
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-10-3765-7387-7",
+  "review": "Excellent Book Recomended 100/100"
+}
+
+
+### Getting review Items
+GET https://localhost/api/review
+Authorization: Bearer <JWT_TOKEN_HERE>
+
+
+### Purchasing a Book
+POST https://localhost/api/purchase
+Authorization: Bearer <JWT_TOKEN_HERE>
+Content-Type: application/json
+
+{
+  "isbn": "978-10-3765-7387-7"
+}
+
+
+### Downloading a Book
+GET https://localhost/api/download/978-10-3765-7387-7
+Authorization: Bearer <JWT_TOKEN_HERE>
